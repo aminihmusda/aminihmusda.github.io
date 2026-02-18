@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aminihmusdacatering.com/sitemap.xml
+
+# Crawl delay (optional - be polite to search engines)
+Crawl-delay: 1
