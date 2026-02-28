@@ -1460,3 +1460,94 @@ p {
         font-size: 2rem;
     }
 }
+
+/* ========================================
+   FLOATING WHATSAPP BUTTON
+   ======================================== */
+.wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    padding: 14px 22px 14px 18px;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+    animation: waPulse 2.5s infinite;
+    text-decoration: none;
+}
+
+.wa-float:hover {
+    background: #1da851;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+    animation: none;
+}
+
+.wa-float svg {
+    flex-shrink: 0;
+}
+
+@keyframes waPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+    50%       { box-shadow: 0 4px 32px rgba(37, 211, 102, 0.65); }
+}
+
+@media (max-width: 480px) {
+    .wa-float {
+        bottom: 20px;
+        right: 16px;
+        padding: 13px 16px;
+    }
+
+    .wa-float-label {
+        display: none;
+    }
+
+    .wa-float {
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   NAV PHONE LINK
+   ======================================== */
+.nav-phone {
+    color: var(--gold) !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.nav-phone::after {
+    display: none !important;
+}
+
+.nav-phone:hover {
+    color: var(--gold-light) !important;
+}
+
+/* Gallery dark section header needs white text */
+.gallery .section-header h2 {
+    color: var(--white);
+}
+
+.gallery .section-header .subtitle {
+    color: var(--gold-light);
+}
+
+.gallery .section-header .divider span {
+    color: var(--gold-light);
+}

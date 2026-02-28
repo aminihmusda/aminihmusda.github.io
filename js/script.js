@@ -113,29 +113,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Testimonial auto-scroll ---
+    // --- Testimonial snap carousel auto-advance ---
     const track = document.querySelector('.testimonial-track');
     if (track) {
-        let scrollInterval;
-        let scrollDirection = 1;
+        const cards = track.querySelectorAll('.testimonial-card');
+        let currentIndex = 0;
+        let autoTimer;
 
-        function autoScroll() {
-            scrollInterval = setInterval(() => {
-                track.scrollLeft += scrollDirection;
-                if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
-                    scrollDirection = -1;
-                } else if (track.scrollLeft <= 0) {
-                    scrollDirection = 1;
-                }
-            }, 30);
+        function goToCard(index) {
+            currentIndex = (index + cards.length) % cards.length;
+            cards[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
         }
 
-        autoScroll();
+        function startAuto() {
+            autoTimer = setInterval(() => {
+                goToCard(currentIndex + 1);
+            }, 4000);
+        }
 
-        track.addEventListener('mouseenter', () => clearInterval(scrollInterval));
-        track.addEventListener('mouseleave', () => autoScroll());
-        track.addEventListener('touchstart', () => clearInterval(scrollInterval), { passive: true });
-        track.addEventListener('touchend', () => autoScroll());
+        function stopAuto() {
+            clearInterval(autoTimer);
+        }
+
+        startAuto();
+        track.addEventListener('mouseenter', stopAuto);
+        track.addEventListener('mouseleave', startAuto);
+        track.addEventListener('touchstart', stopAuto, { passive: true });
+        track.addEventListener('touchend', () => setTimeout(startAuto, 2000));
     }
 
     // --- Active nav link highlight on scroll ---

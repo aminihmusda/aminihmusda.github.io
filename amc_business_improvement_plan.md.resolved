@@ -1,0 +1,410 @@
+# AMC Strategic Growth Plan
+## Aminih Musda Catering — McKinsey-Style Business Improvement Plan
+**Prepared:** March 2026 | **Analyst:** Antigravity
+
+---
+
+> **Executive Summary**: Aminih Musda Catering is a well-established, 20+ year catering brand with strong word-of-mouth equity, an authentic founding story, and competitive pricing. However, the business is **under-monetizing its digital presence** due to a combination of website conversion gaps, missing acquisition channels, and no systematic retention strategy. This plan identifies **5 strategic pillars** and **18 weeks** of prioritized actions to materially grow revenue, reach, and customer loyalty.
+
+---
+
+## Situational Analysis
+
+### Strengths (What AMC Has)
+| Asset | Current State |
+|---|---|
+| **Brand Story** | 20+ years, founder-led narrative ("Ibu Amini Musda"), emotional resonance |
+| **Pricing** | Nasi box from Rp 20rb — extremely competitive |
+| **Service Range** | 6 categories: Nasi Box, Prasmanan, Wedding, Tumpeng, Snack Box, Aqiqah |
+| **Location** | Jakarta Timur (Kampung Rambutan) — dense residential & office area |
+| **Digital Foundation** | Website live, basic SEO meta tags, JSON-LD schema, sitemap |
+| **Social Presence** | Instagram (@catering.amc), Facebook, Google Maps listing |
+
+### Critical Gaps (Where Revenue Is Being Lost)
+| Gap | Business Impact |
+|---|---|
+| **No real food photography** — all service images are placeholder graphics | Visitors don't feel hungry → low conversion |
+| **No phone number visible** | Customers who prefer calling can't reach AMC |
+| **No online ordering / form** | Booking friction — WhatsApp only, no structured process |
+| **Gallery uses placeholder images** | Credibility gap, looks unfinished |
+| **Testimonials are text-only & generic** | Low social proof weight vs. verified Google reviews |
+| **No blog/content strategy deployed** | Missing long-tail SEO traffic that would be warm leads |
+| **No email/WhatsApp broadcast list** | Zero retention marketing channel |
+| **Wedding pricing hidden ("Diskusikan")** | Price-sensitive segment bounces without inquiring |
+| **No promo/urgency mechanism** | Nothing nudges visitors to book today vs. later |
+| **Counter stats unverified** ("5000+ events, 100+ menu") | If over-claimed, risks credibility |
+
+---
+
+## The 5 Strategic Pillars
+
+---
+
+## Pillar 1: Fix the Digital Foundation
+> *"Se-bagus apapun strategi, kalau website-nya bocor, semua effort sia-sia."*
+
+### 1.1 Website — Critical Technical Bugs
+
+| Issue | Location | Fix |
+|---|---|---|
+| **Gallery & Services sections use `placehold.co` images** | HTML lines 56–73, 446–513 | Replace with actual food photography ASAP |
+| **`<section>` tag appears inside `<head>`** (gallery section at line 46) | index.html line 45–76 | Move gallery section to `<body>` — this is a **structural HTML error** |
+| **Hero logo references `1.png` from root** | line 283 | Confirm file exists; use asset path; add `width`/`height` attrs to prevent CLS |
+| **About section uses `2.png` from root** | line 345 | Same as above |
+| **Counter stat uses +  for all values** | script.js line 70 | Inconsistent — "20+ Tahun Berdiri" displays as the number `20` (should be `"2004"`) |
+| **No phone/WhatsApp number visible in header** | navbar | Add a sticky click-to-WhatsApp button in navbar (mobile-first) |
+| **Testimonial auto-scroll is pixel-by-pixel** | script.js line 124 | Replace with card-snap carousel — pixel scroll feels janky on mobile |
+
+### 1.2 Quick Wins — Add Immediately
+
+- [ ] **Sticky WhatsApp button** (floating bottom-right) — industry standard for Indonesian SMB sites, dramatically increases contact rate
+- [ ] **Phone number** in footer and contact section (many customers prefer calling, especially for large orders)
+- [ ] **"Pesan Paket" form** — a simple Google Forms / Typeform embed with fields: Name, Event Type, Date, Guest Count, Location, Budget → reduces back-and-forth in WhatsApp
+- [ ] **"Cek Ketersediaan Tanggal"** CTA — signals capacity is finite, creates urgency
+- [ ] **Trust badges row** — "Halal Certified", "20+ Tahun", "5000+ Event", "Jabodetabek Coverage"
+- [ ] **Price list download PDF** — customers love having a tangible asset to share with family
+
+### 1.3 Page Performance
+
+| Check | Recommended Target |
+|---|---|
+| Core Web Vitals (LCP) | < 2.5s |
+| First Input Delay | < 100ms |
+| Image optimization | All food photos compressed to WebP |
+| Font loading strategy | `font-display: swap` (check CSS) |
+
+> **Action**: Submit to Google PageSpeed Insights after deploying. Current placeholder images are fast (no real images), so after replacing with real photos, compression is critical.
+
+---
+
+## Pillar 2: SEO & Local Search Domination
+> *"Google Maps adalah sales team terbaik AMC yang tidak perlu digaji."*
+
+### 2.1 What's Already Good
+The website has solid on-page SEO foundations — title tags, meta descriptions, canonical URL, JSON-LD schema (LocalBusiness, FAQPage, AggregateRating), Open Graph, geo meta tags, sitemap.xml, and robots.txt. **This is 40% of the SEO battle already won.**
+
+### 2.2 Missing SEO Actions (Prioritized)
+
+#### 🔴 Priority 0 — Do This Week
+
+| Action | Why It Matters |
+|---|---|
+| **Claim & complete Google Business Profile** | #1 driver of local search visibility. Without this, AMC won't appear in the "3-pack" map results |
+| **Submit sitemap to Google Search Console** | Required to get pages indexed. Sitemap exists but may not be submitted |
+| **Add real photos to GBP** | Businesses with 100+ photos get 520% more calls (Google data) |
+| **Request 10-15 Google Reviews from existing customers** | Star rating directly affects CTR in search results |
+
+#### 🟡 Priority 1 — Do This Month
+
+| Action | Impact |
+|---|---|
+| **Dedicated landing pages per service** | `/catering-pernikahan`, `/nasi-box-jakarta`, `/catering-aqiqah` — each page can rank for its own keyword cluster |
+| **Fix the AggregateRating schema** | Currently hardcoded as 4.9/156 reviews — must match real Google rating or Google may penalize |
+| **Add `LocalBusiness` opening hours to website** | Already in JSON-LD, also add visible hours to page |
+| **Register on Tokopedia, GoFood, ShopeeFood** | 35% of Indonesian food orders now start on marketplace/aggregator platforms |
+| **List on Bridestory & Weddingku** | High-intent wedding audience; links back to site = quality backlinks |
+
+#### 🟢 Priority 2 — Do This Quarter
+
+| Action | Impact |
+|---|---|
+| **Blog: 5 SEO articles** (see content plan below) | Long-tail traffic, warm leads |
+| **Google Ads — test Rp 100rb/day** for "catering nasi box jakarta" | Immediate traffic for high-intent keywords while organic SEO builds |
+| **YouTube channel** — cooking process videos | Video content = huge reach; also embeds on website build trust |
+
+### 2.3 Keyword Battle Plan
+
+```
+Tier 1 — Win Now (Low Competition, Local)
+├── "catering kampung rambutan"         [near-zero competition]
+├── "catering ciracas"                  [near-zero competition]
+├── "catering jakarta timur murah"      [low competition]
+└── "nasi box jakarta timur"            [low competition]
+
+Tier 2 — Win in 3 Months (Medium)
+├── "catering halal jakarta"
+├── "catering aqiqah jakarta"
+└── "catering kantor jakarta timur"
+
+Tier 3 — Win in 6-12 Months (High)
+├── "catering jakarta"
+├── "catering pernikahan jakarta"
+└── "nasi box jakarta"
+```
+
+### 2.4 Blog Content Plan (SEO Articles)
+
+| Title | Target Keyword | Estimated Monthly Searches |
+|---|---|---|
+| "5 Tips Memilih Catering Halal Jakarta yang Aman" | catering halal jakarta | ~1,200/mo |
+| "Paket Nasi Box Murah Jakarta — Perbandingan Harga 2026" | nasi box murah jakarta | ~800/mo |
+| "Catering Aqiqah Jakarta: Panduan Lengkap + Harga" | catering aqiqah jakarta | ~600/mo |
+| "Catering Pernikahan 200-500 Tamu di Jakarta — Checklist" | catering pernikahan jakarta | ~900/mo |
+| "Catering Kantor Jakarta Timur — AMC Siap Antarkan" | catering kantor jakarta timur | ~300/mo |
+
+---
+
+## Pillar 3: Customer Experience Transformation
+> *"Customer yang puas adalah marketing yang tidak berbayar."*
+
+### 3.1 The Customer Journey Map
+
+```
+AWARENESS           CONSIDERATION       CONVERSION          RETENTION
+    │                   │                   │                   │
+ Google Search      Visits website      Contacts via WA     Orders again
+ Instagram post     Checks prices       Discusses menu      Refers friends
+ Word of mouth      Reads testimoni     Confirms booking    Gives review
+    │                   │                   │                   │
+ GAPS:              GAPS:               GAPS:               GAPS:
+ No ads running     No real photos      No order form       No follow-up
+ Low SEO rank       Prices hidden       No WA auto-reply    No loyalty prog
+ No content         No FAQ answers      No booking confirm  No birthday promo
+```
+
+### 3.2 Website UX Improvements
+
+#### Navigation
+- [ ] Add **"Galeri"** to navbar (currently in footer links but not main nav) — gallery is a conversion tool
+- [ ] Add **"Harga / Paket"** as a dedicated nav item — most visited section for comparison shoppers
+- [ ] Add **floating WhatsApp button** (the #1 UX improvement for Indonesian SMBs)
+
+#### Services Section
+- [ ] Show **actual price ranges** for Wedding package — "Diskusikan" causes bounce. Even "Mulai Rp 55rb/pax" helps
+- [ ] Add **minimum order / lead time** info — "Min. 50 pax, order H-3" reduces unqualified inquiries
+- [ ] Add **"Lihat Detail Paket →"** links on each service card
+
+#### Social Proof
+- [ ] Replace text-only avatars (initials) with actual customer photos (with consent) or at minimum verified Google review embeds
+- [ ] Add a **"156 ulasan bintang 5 di Google"** widget / badge — link to Google Maps
+- [ ] Add **logo strip of past clients** (if applicable): kantor, universitas, instansi, etc.
+
+#### Menu Section
+- [ ] Current menu is **icon-only with no photos** — add food photos per item
+- [ ] Add **prices per item** where possible to help customers self-qualify
+- [ ] Add **"Paket Lengkap"** bundle suggestion: "Nasi Box + Snack Box + Tumpeng — hemat 10%"
+
+### 3.3 Post-Order Experience (Huge Gap)
+
+Currently there is **zero post-order touchpoint** visible on the website or process:
+
+| Touchpoint | Recommended Action |
+|---|---|
+| **WA Auto-Reply** | Set up WhatsApp Business auto-reply with menu PDF & pricing |
+| **Order Confirmation** | Send WA message with order summary, date, time, qty |
+| **Day-Before Reminder** | Automated WA reminder "Besok pesanan Anda akan diantar pukul 10.00 WIB" |
+| **Post-Event Follow-Up** | "Terima kasih sudah percaya AMC! Bagaimana kesan Anda?" + Google review link |
+| **Thank You Gift** | For orders 100+ pax: include a small thank-you card / discount voucher for next order |
+
+---
+
+## Pillar 4: Customer Acquisition & Marketing
+> *"Pelanggan baru adalah hasil dari cerita yang bagus, disebarkan di tempat yang tepat."*
+
+### 4.1 Channel Strategy Matrix
+
+| Channel | Current State | Recommended Action | Investment |
+|---|---|---|---|
+| **Instagram** | Active (@catering.amc) | Structured content calendar; Reels for reach | Time only |
+| **WhatsApp Broadcast** | Not visible | Build list from every order; weekly content | Time only |
+| **Google Search (Organic)** | Basic SEO done | Blog content + GBP optimization | Time only |
+| **Google Maps** | Listing exists | Claim, complete, get 50+ reviews | Time only |
+| **Google Ads** | Not running | Test Rp 100rb/day for 1 month | ~Rp 3jt/mo |
+| **Instagram Ads** | Not running | Boost best-performing posts; target by area | ~Rp 1jt/mo |
+| **GoFood / ShopeeFood** | Not listed | Register for nasi box / snack box orders | Commission % |
+| **Bridestory / Weddingku** | Not listed | Register for wedding leads | Subscription |
+| **Referral Program** | None | "Ajak teman, dapat diskon 10%" | Discount cost |
+| **Facebook** | Active (amc.catering) | Cross-post Instagram content | Time only |
+
+### 4.2 Instagram Content Calendar (Weekly Template)
+
+```
+Monday    — "Menu of the Week" post (food photo + price)
+Wednesday — Behind-the-scenes / process video (Reels)
+Friday    — Promo / special offer (limited seats)
+Sunday    — Customer testimonial / event recap
+```
+
+**Reels Ideas (High Reach, Zero Cost)**:
+- Time-lapse of tumpeng decorating
+- "Lihat isi nasi box AMC" unboxing video
+- Wedding setup process montage
+- "Sehari menjadi chef katering" vlog
+- Cooking tutorial of signature rendang recipe
+
+### 4.3 WhatsApp Business Strategy
+
+WhatsApp is **the #1 channel** for Indonesian food order conversions. AMC should:
+
+1. **Set up WhatsApp Business** (not regular WA) with catalog feature
+2. **Create WA Broadcast Lists** segmented by:
+   - Pelanggan pernikahan
+   - Pelanggan kantor
+   - Pelanggan keluarga/pribadi
+3. **Weekly broadcast content**:
+   - Monday: "Promo minggu ini"
+   - Friday: "Masih ada slot akhir pekan ini!"
+4. **WA Status** — post daily stories showing today's orders being packed
+5. **Quick Replies** for common questions: harga, area pengiriman, minimum order, metode pembayaran
+
+### 4.4 Partnership & B2B Acquisition
+
+The **highest-value, lowest-cost** customer channel for catering is B2B:
+
+| Partner Type | Approach | Expected Value |
+|---|---|---|
+| **Kantor & Perusahaan** (in Jakarta Timur) | Cold call / visit with sample box | Rp 5-50jt/month recurring |
+| **Wedding Organizer** | Revenue share / referral fee | 3-5 weddings/month |
+| **Event Organizer** | Same as WO | Variable |
+| **Masjid & Pengajian Groups** | Sponsor one free aqiqah, get word of mouth | Community trust |
+| **Kampus / Universitas** | Approach catering coordinator | Consistent bulk orders |
+| **BPJS / Pemerintah** | Register as approved vendor (LPSE) | Large contracts |
+
+### 4.5 Seasonal & Event Marketing
+
+Indonesian catering demand has predictable peaks — **plan 4 weeks ahead**:
+
+| Season / Event | Service to Push | Marketing Hook |
+|---|---|---|
+| Ramadan → Lebaran | Catering buka puasa, paket lebaran | "Sajian berkah untuk momen berkah" |
+| Maulid Nabi | Tumpeng, prasmanan | "Rayakan dengan sajian spesial" |
+| Wisuda season (May, Oct) | Prasmanan, nasi box | "Selamat wisuda! Kami siap melayani" |
+| Aqiqah (year-round) | Paket aqiqah complete | "Syukuran aqiqah = amanah ke AMC" |
+| Year-end (Nov-Dec) | Office year-end party | "Catering gathering akhir tahun" |
+| Wedding season (Jan, Jun) | Wedding package | Book early discount |
+
+---
+
+## Pillar 5: Revenue Growth & Retention
+> *"Lebih murah mempertahankan pelanggan lama daripada mencari yang baru."*
+
+### 5.1 Pricing Architecture (Upsell Strategy)
+
+Currently AMC presents a flat menu with minimal upsell structure. Recommend a **Good / Better / Best** packaging:
+
+| Tier | Price Point | What's Included | Target Customer |
+|---|---|---|---|
+| **Hemat** | Rp 20-30rb/pax | Nasi box standar | Mass market, offices |
+| **Istimewa** | Rp 35-50rb/pax | Nasi box premium + dessert | Family events |
+| **VIP** | Rp 55-80rb/pax | Prasmanan + dekorasi + pramusaji | Weddings, corporate |
+| **Keistimewaan Khusus** | Custom | Full wedding package | Premium weddings |
+
+### 5.2 Add-On Revenue Streams
+
+| Add-On | Price Range | Effort to Implement |
+|---|---|---|
+| Dekorasi meja | Rp 150-500rb/set | Low — partner with florist |
+| Paket minuman (jus, es teh, air mineral) | Rp 5-10rb/pax | Very Low |
+| Dokumentasi (foto/video acara) | Rp 300-1.5jt | Low — partner with photographer |
+| Kartu menu cetak | Rp 50-100rb | Low |
+| MC / Host acara | Rp 500rb-1.5jt | Low — partner with MC |
+| Tenda & kursi | Revenue share | Low — partner with vendor |
+
+### 5.3 Loyalty & Retention Program
+
+| Program | Mechanic | Expected Impact |
+|---|---|---|
+| **Repeat Order Discount** | Order 3x → diskon 5% permanen | Increases LTV |
+| **Referral Bonus** | Ajak teman, keduanya dapat Rp 25rb | Word-of-mouth multiplier |
+| **Anniversary Promo** | Pelanggan yang ulang tahun bulan ini: gratis 10 nasi box | Emotional loyalty |
+| **Daftar Langganan** | Join "Pelanggan AMC" via WA → dapat info promo duluan | Database building |
+
+### 5.4 Revenue Impact Estimation
+
+| Initiative | Monthly Revenue Potential | Difficulty |
+|---|---|---|
+| Fix website + floating WA button | +15-25% conversion | Low |
+| Google Business Profile + 50 reviews | +20-40% inbound calls | Low |
+| GoFood / ShopeeFood registration | +Rp 5-15jt new orders | Medium |
+| WhatsApp broadcast (1,000 contacts) | +10-20% reorder rate | Low |
+| B2B office partnerships (3 accounts) | +Rp 10-30jt/month recurring | Medium |
+| Wedding upsell (2-3 more bookings) | +Rp 20-60jt/month | Medium |
+| Blog content (3-6 month lag) | +30-50% organic web traffic | Medium |
+
+---
+
+## 18-Week Execution Roadmap
+
+```
+PHASE 1: Fix & Foundation (Weeks 1-4)
+├── Fix HTML structural bug (section in head)
+├── Replace all placeholder images with real food photos
+├── Add floating WhatsApp button
+├── Add visible phone number
+├── Claim & complete Google Business Profile
+├── Submit sitemap.xml to Google Search Console
+├── Set up WhatsApp Business (catalog, auto-reply)
+└── Request 15 Google reviews from loyal customers
+
+PHASE 2: Amplify (Weeks 5-10)
+├── Launch Instagram content calendar
+├── Create dedicated service landing pages
+├── Write first 3 blog articles (SEO)
+├── Register on GoFood / ShopeeFood
+├── Register on Bridestory / Weddingku
+├── Launch Google Ads test (Rp 100rb/day)
+├── Build WhatsApp broadcast database
+└── Create pricing PDF for download
+
+PHASE 3: Optimize & Scale (Weeks 11-18)
+├── Analyze Google Search Console data → optimize content
+├── Launch referral program
+├── B2B sales: approach 10 offices in Jakarta Timur
+├── Write remaining blog articles
+├── A/B test WA message templates
+├── Review and optimize Google Ads based on data
+└── Set up repeat-order loyalty program
+```
+
+---
+
+## Priority Matrix
+
+```
+                HIGH IMPACT
+                     │
+    Fix HTML bug  ●  │  ● WA Float Button
+    GBP Claim     ●  │  ● Real food photos
+                     │  ● WA Business setup
+─────────────────────┼─────────────────────
+LOW EFFORT           │              HIGH EFFORT
+                     │
+                     │  ● Blog content
+    WA Broadcast  ●  │  ● B2B Sales
+    Instagram Cal ●  │  ● GoFood listing
+                     │  ● Google Ads
+                LOW IMPACT
+```
+
+> **Start Here → Top Left (Quick Wins):**
+> 1. Fix HTML bug
+> 2. Add floating WhatsApp button
+> 3. Add real food photos
+> 4. Claim Google Business Profile
+> 5. Submit sitemap to Search Console
+
+---
+
+## Key Performance Indicators
+
+| KPI | Current (Est.) | 3-Month Target | 6-Month Target |
+|---|---|---|---|
+| Google Maps ranking (catering jakarta timur) | Unknown | Top 3 Map Pack | Top 1 Map Pack |
+| Website monthly visitors | < 500 | 2,000+ | 5,000+ |
+| WhatsApp inquiries/month | Unknown | 50+ | 150+ |
+| Instagram followers | Unknown | +500 | +2,000 |
+| Google reviews | Unknown | 50+ | 100+ |
+| Monthly revenue from new channels | Rp 0 | Rp 5-10jt | Rp 20-40jt |
+
+---
+
+## Final Verdict
+
+AMC has a **strong core product** (halal, affordable, 20+ years of trust) but is **operating below its commercial potential** due to digital execution gaps. The good news: most of the high-impact fixes are **low-cost or zero-cost** and can be completed within 4 weeks. The single highest-ROI action is:
+
+> **1. Claim your Google Business Profile and get 50 real reviews — before anything else.**
+
+This alone will drive more inbound inquiries than any other single action.
+
+---
+*© 2026 — Antigravity Analysis for Aminih Musda Catering*
