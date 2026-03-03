@@ -42,13 +42,15 @@
     content="Catering halal profesional sejak 2004. Nasi box, prasmanan, wedding catering. Halalan Thoyyiban, terjangkau, dan enak.">
   <meta name="twitter:image" content="https://aminihmusdacatering.com/1.png">
 
-  <!-- ===== VALUES SECTION ===== -->
+  <!-- ===== FAVICON ===== -->
   <link rel="icon" href="assets/images/icon-light-bg.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/images/icon-light-bg.png">
 
   <!-- ===== GOOGLE FONTS ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
@@ -211,6 +213,12 @@
 
 <body>
 
+  <!-- Skip to content (accessibility) -->
+  <a href="#tentang" class="skip-link">Skip to content</a>
+
+  <!-- Scroll progress bar -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
   <!-- ============ NAVBAR ============ -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -230,7 +238,7 @@
         <a href="tel:+628568773200" class="nav-phone">📞 0856-8773-200</a>
         <a href="#kontak" class="nav-cta">Hubungi Kami</a>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -249,7 +257,8 @@
 
     <div class="hero-content">
       <div class="hero-logo">
-        <img src="assets/images/logo-dark-bg.png" alt="Aminih Musda Catering Logo" width="180" height="180" onerror="this.src='assets/images/icon-light-bg.png'">
+        <img src="assets/images/logo-dark-bg.png" alt="Aminih Musda Catering Logo" width="180" height="180"
+          onerror="this.src='assets/images/icon-light-bg.png'">
       </div>
       <h1>Aminih Musda <span class="gold">Catering</span></h1>
       <p class="hero-tagline">"Karena setiap momen berharga layak dirayakan dengan sajian terbaik."</p>
@@ -311,7 +320,9 @@
       <div class="about-grid">
         <div class="about-image reveal">
           <div class="about-image-main">
-            <img src="assets/images/logo-light-bg.png" alt="Logo Aminih Musda Catering - Catering Halal Jakarta" width="320" height="320" onerror="this.src='assets/images/icon-light-bg.png'">
+            <img src="assets/images/about/chef-kitchen.png"
+              alt="Tim Dapur Profesional Aminih Musda Catering - Catering Halal Jakarta" width="320" height="320"
+              onerror="this.src='assets/images/icon-light-bg.png'">
           </div>
           <div class="about-image-badge">
             <div class="number">20+</div>
@@ -410,83 +421,96 @@
 
       <div class="services-grid">
         <!-- Service 1 -->
-        <a href="#menu" class="service-card reveal">
+        <div class="service-card reveal">
           <div class="service-image-wrapper">
-            <img src="https://placehold.co/600x400/2D2D2D/D4A528/png?text=Nasi+Box" alt="Nasi Box" class="service-img"
-              loading="lazy">
+            <img src="assets/images/services/nasi-box.png" alt="Nasi Box AMC — Catering Halal Jakarta"
+              class="service-img" loading="lazy" width="600" height="400">
             <div class="service-tag">Best Seller</div>
           </div>
           <div class="service-body">
             <h3>Nasi Box</h3>
             <p>Pilihan praktis dengan menu variatif. Mulai dari ayam bakar, rendang, hingga menu seafood.</p>
-            <div class="service-price">Mulai <span>Rp 20rb/box</span></div>
+            <div class="service-price">Mulai <span class="price-highlight">Rp 20.000/box</span></div>
+            <a href="https://wa.me/628568773200?text=Halo%20Bu%2C%20saya%20tertarik%20pesan%20Nasi%20Box%20AMC.%20Boleh%20info%20lebih%20lanjut%3F"
+              class="service-wa-btn" target="_blank" rel="noopener">Pesan Sekarang →</a>
           </div>
-        </a>
+        </div>
 
         <!-- Service 2 -->
-        <a href="#menu" class="service-card reveal">
+        <div class="service-card reveal">
           <div class="service-image-wrapper">
-            <img src="https://placehold.co/600x400/2D2D2D/D4A528/png?text=Prasmanan" alt="Prasmanan" class="service-img"
-              loading="lazy">
+            <img src="assets/images/services/prasmanan.png" alt="Prasmanan AMC — Buffet Catering Jakarta"
+              class="service-img" loading="lazy" width="600" height="400">
           </div>
           <div class="service-body">
             <h3>Prasmanan / Buffet</h3>
-            <p>Sajian lengkap untuk acara syukuran, kantor, atau gathering. Dekorasi meja cantik & pelayan.</p>
-            <div class="service-price">Mulai <span>Rp 45rb/pax</span></div>
+            <p>Sajian lengkap untuk acara syukuran, kantor, atau gathering. Dekorasi meja cantik &amp; pelayan.</p>
+            <div class="service-price">Mulai <span class="price-highlight">Rp 45.000/pax</span></div>
+            <a href="https://wa.me/628568773200?text=Halo%20Bu%2C%20saya%20tertarik%20pesan%20Prasmanan%20AMC.%20Boleh%20info%20lebih%20lanjut%3F"
+              class="service-wa-btn" target="_blank" rel="noopener">Pesan Sekarang →</a>
           </div>
-        </a>
+        </div>
 
         <!-- Service 3 -->
-        <a href="#kontak" class="service-card reveal">
+        <div class="service-card reveal">
           <div class="service-image-wrapper">
-            <img src="https://placehold.co/600x400/2D2D2D/D4A528/png?text=Wedding+Catering" alt="Wedding Catering"
+            <img src="assets/images/services/wedding.png" alt="Wedding Catering AMC — Catering Pernikahan Jakarta"
               class="service-img" loading="lazy" width="600" height="400">
+            <div class="service-tag">Premium</div>
           </div>
           <div class="service-body">
             <h3>Wedding Package</h3>
             <p>Paket lengkap resepsi pernikahan. Termasuk gubukan, dekorasi catering, dan testing food.</p>
-            <div class="service-price">Mulai <span>Rp 55rb/pax</span></div>
+            <div class="service-price">Mulai <span class="price-highlight">Rp 55.000/pax</span></div>
+            <a href="https://wa.me/628568773200?text=Halo%20Bu%2C%20saya%20tertarik%20dengan%20paket%20Wedding%20Catering%20AMC.%20Boleh%20konsultasi%3F"
+              class="service-wa-btn" target="_blank" rel="noopener">Konsultasi Gratis →</a>
           </div>
-        </a>
+        </div>
 
         <!-- Service 4 -->
-        <a href="#menu" class="service-card reveal">
+        <div class="service-card reveal">
           <div class="service-image-wrapper">
-            <img src="https://placehold.co/600x400/2D2D2D/D4A528/png?text=Tumpeng" alt="Tumpeng" class="service-img"
-              loading="lazy">
+            <img src="assets/images/services/tumpeng.png" alt="Nasi Tumpeng AMC — Tumpeng Hias Jakarta"
+              class="service-img" loading="lazy" width="600" height="400">
           </div>
           <div class="service-body">
             <h3>Nasi Tumpeng</h3>
             <p>Tumpeng kuning/putih hias untuk perayaan ulang tahun atau peresmian gedung.</p>
-            <div class="service-price">Mulai <span>Rp 350rb</span></div>
+            <div class="service-price">Mulai <span class="price-highlight">Rp 350.000</span></div>
+            <a href="https://wa.me/628568773200?text=Halo%20Bu%2C%20saya%20tertarik%20pesan%20Nasi%20Tumpeng%20AMC.%20Boleh%20info%20harga%3F"
+              class="service-wa-btn" target="_blank" rel="noopener">Pesan Sekarang →</a>
           </div>
-        </a>
+        </div>
 
         <!-- Service 5 -->
-        <a href="#menu" class="service-card reveal">
+        <div class="service-card reveal">
           <div class="service-image-wrapper">
-            <img src="https://placehold.co/600x400/2D2D2D/D4A528/png?text=Snack+Box" alt="Snack Box" class="service-img"
-              loading="lazy">
+            <img src="assets/images/services/snack-box.png" alt="Snack Box AMC — Kue Basah Jakarta" class="service-img"
+              loading="lazy" width="600" height="400">
           </div>
           <div class="service-body">
             <h3>Snack Box</h3>
             <p>Aneka kue basah dan roti (manis/asin) untuk meeting, seminar, atau pengajian.</p>
-            <div class="service-price">Mulai <span>Rp 10rb/box</span></div>
+            <div class="service-price">Mulai <span class="price-highlight">Rp 10.000/box</span></div>
+            <a href="https://wa.me/628568773200?text=Halo%20Bu%2C%20saya%20tertarik%20pesan%20Snack%20Box%20AMC.%20Boleh%20info%20lebih%20lanjut%3F"
+              class="service-wa-btn" target="_blank" rel="noopener">Pesan Sekarang →</a>
           </div>
-        </a>
+        </div>
 
         <!-- Service 6 -->
-        <a href="#kontak" class="service-card reveal">
+        <div class="service-card reveal">
           <div class="service-image-wrapper">
-            <img src="https://placehold.co/600x400/2D2D2D/D4A528/png?text=Aqiqah" alt="Aqiqah" class="service-img"
-              loading="lazy" width="600" height="400">
+            <img src="assets/images/services/aqiqah.png" alt="Paket Aqiqah AMC — Aqiqah Halal Jakarta"
+              class="service-img" loading="lazy" width="600" height="400">
           </div>
           <div class="service-body">
             <h3>Paket Aqiqah</h3>
-            <p>Layanan aqiqah syar'i (kambing jantan), potong & masak. Bisa disalurkan ke panti asuhan.</p>
-            <div class="service-price">Hubungi <span>untuk harga</span></div>
+            <p>Layanan aqiqah syar'i (kambing jantan), potong &amp; masak. Bisa disalurkan ke panti asuhan.</p>
+            <div class="service-price"><span class="price-custom">Harga Sesuai Paket</span></div>
+            <a href="https://wa.me/628568773200?text=Halo%20Bu%2C%20saya%20tertarik%20dengan%20Paket%20Aqiqah%20AMC.%20Boleh%20info%20harga%3F"
+              class="service-wa-btn" target="_blank" rel="noopener">Tanya Harga →</a>
           </div>
-        </a>
+        </div>
       </div>
     </div>
     </div>
@@ -512,187 +536,114 @@
       <div class="menu-grid">
         <!-- Nasi -->
         <div class="menu-item reveal" data-category="nasi">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🍚</div>
           <div class="menu-item-info">
             <h4>Nasi Putih / Uduk</h4>
             <p>Nasi pulen dengan pilihan putih atau uduk gurih</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <div class="menu-item reveal" data-category="nasi">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🌕</div>
           <div class="menu-item-info">
             <h4>Nasi Kuning</h4>
             <p>Nasi kuning harum dengan bumbu kunyit spesial</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <div class="menu-item reveal" data-category="nasi">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">✨</div>
           <div class="menu-item-info">
             <h4>Nasi Kebuli</h4>
             <p>Nasi kebuli khas Timur Tengah dengan rempah aromatik</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <!-- Lauk -->
         <div class="menu-item reveal" data-category="lauk">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🍗</div>
           <div class="menu-item-info">
             <h4>Ayam Goreng Rempah</h4>
             <p>Ayam kampung goreng bumbu rempah khas AMC</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <div class="menu-item reveal" data-category="lauk">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🥩</div>
           <div class="menu-item-info">
             <h4>Rendang Daging Sapi</h4>
             <p>Rendang empuk dengan bumbu pekat dan kelapa sangrai</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <div class="menu-item reveal" data-category="lauk">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🐟</div>
           <div class="menu-item-info">
             <h4>Ikan Bakar Jimbaran</h4>
             <p>Ikan segar bakar bumbu sambal matah</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <div class="menu-item reveal" data-category="lauk">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🍖</div>
           <div class="menu-item-info">
             <h4>Empal Gepuk</h4>
             <p>Daging empal gepuk goreng manis gurih khas Sunda</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <div class="menu-item reveal" data-category="lauk">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🦐</div>
           <div class="menu-item-info">
             <h4>Udang Saus Padang</h4>
             <p>Udang besar dengan saus padang pedas menggugah selera</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <!-- Sayur -->
         <div class="menu-item reveal" data-category="sayur">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🥗</div>
           <div class="menu-item-info">
             <h4>Gado-Gado Jakarta</h4>
             <p>Sayuran segar dengan bumbu kacang khas Jakarta</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <div class="menu-item reveal" data-category="sayur">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🫕</div>
           <div class="menu-item-info">
             <h4>Sayur Asem</h4>
             <p>Sayur asem segar khas Betawi dengan labu siam dan jagung</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <!-- Dessert -->
         <div class="menu-item reveal" data-category="dessert">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-              <path d="M7 2v20"></path>
-              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🍮</div>
           <div class="menu-item-info">
             <h4>Puding Karamel</h4>
             <p>Puding lembut dengan saus karamel manis</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
 
         <div class="menu-item reveal" data-category="dessert">
-          <div class="menu-item-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-          </div>
+          <div class="menu-item-icon">🍹</div>
           <div class="menu-item-info">
             <h4>Es Cendol / Teler</h4>
             <p>Minuman segar tradisional pilihan penutup</p>
           </div>
+          <div class="menu-item-price">Tersedia</div>
         </div>
       </div>
     </div>
@@ -705,6 +656,22 @@
         <h2>Apa Kata Mereka?</h2>
         <p class="subtitle">Testimoni dari pelanggan setia AMC</p>
         <div class="divider"><span>✦</span></div>
+      </div>
+
+      <div class="testimonial-nav">
+        <button class="testimonial-prev" aria-label="Testimoni sebelumnya">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="testimonial-dots"></div>
+        <button class="testimonial-next" aria-label="Testimoni selanjutnya">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
 
       <div class="testimonial-track">
@@ -781,6 +748,79 @@
     </div>
   </section>
 
+  <!-- ============ FAQ ============ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2>Pertanyaan Umum</h2>
+        <p class="subtitle">Jawaban untuk pertanyaan yang sering ditanyakan</p>
+        <div class="divider"><span>✦</span></div>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Berapa harga catering nasi box di AMC?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Harga nasi box di Aminih Musda Catering mulai dari <strong>Rp 20.000 per box</strong>, sudah termasuk
+              nasi, lauk pilihan, sayur, buah, dan air mineral. Untuk pemesanan lebih dari 50 box, tersedia diskon
+              spesial.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Apakah AMC Catering menyediakan catering halal?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Ya, Aminih Musda Catering (AMC) menjamin semua hidangan <strong>Halalan Thoyyiban</strong>. Setiap bahan
+              baku yang digunakan halal dan diolah dengan standar kebersihan yang tinggi. Ini adalah komitmen kami sejak
+              2004.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Area mana saja yang dilayani AMC Catering?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>AMC Catering melayani seluruh area <strong>Jakarta, Bogor, Depok, Tangerang, dan Bekasi
+                (Jabodetabek)</strong> serta kota-kota sekitarnya. Untuk area di luar Jabodetabek, silahkan hubungi kami
+              untuk informasi lebih lanjut.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Apakah AMC menyediakan catering pernikahan?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Ya, AMC Catering adalah spesialis catering pernikahan dengan pengalaman lebih dari <strong>20
+                tahun</strong>. Paket wedding catering mulai dari <strong>Rp 55.000 per pax</strong>, termasuk dekorasi
+              meja, pelayan, dan menu custom sesuai selera Anda. Tersedia juga food tasting sebelum hari H.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Berapa minimal pemesanan dan berapa lama waktu persiapan?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Minimal pemesanan nasi box dan snack box adalah <strong>30 pax</strong>. Untuk prasmanan dan wedding
+              catering, minimal <strong>50 pax</strong>. Waktu persiapan ideal adalah <strong>3–7 hari sebelum
+                acara</strong>, namun kami siap membantu untuk pemesanan mendadak sesuai kapasitas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ GALLERY ============ -->
   <section class="section gallery" id="gallery">
     <div class="container">
@@ -792,28 +832,34 @@
 
       <div class="gallery-grid reveal">
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=600&fit=crop" alt="Sajian Catering AMC - Wedding Setup"
-            loading="lazy" width="600" height="600">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=600&fit=crop"
+            alt="Wedding Catering Setup AMC" loading="lazy" width="600" height="600">
+          <div class="gallery-overlay"><span>Wedding Setup · AMC</span></div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&h=600&fit=crop" alt="Prasmanan AMC - Buffet Setup"
-            loading="lazy" width="600" height="600">
+          <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&h=600&fit=crop"
+            alt="Prasmanan Buffet AMC" loading="lazy" width="600" height="600">
+          <div class="gallery-overlay"><span>Prasmanan Buffet · AMC</span></div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&h=600&fit=crop" alt="Nasi Tumpeng Hias AMC"
-            loading="lazy" width="600" height="600">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&h=600&fit=crop"
+            alt="Nasi Tumpeng Hias AMC" loading="lazy" width="600" height="600">
+          <div class="gallery-overlay"><span>Nasi Tumpeng · AMC</span></div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&h=600&fit=crop" alt="Nasi Box Premium AMC"
-            loading="lazy" width="600" height="600">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&h=600&fit=crop"
+            alt="Nasi Box Premium AMC" loading="lazy" width="600" height="600">
+          <div class="gallery-overlay"><span>Nasi Box Premium · AMC</span></div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=600&fit=crop" alt="VIP Service AMC"
-            loading="lazy" width="600" height="600">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=600&fit=crop"
+            alt="Event Catering VIP AMC" loading="lazy" width="600" height="600">
+          <div class="gallery-overlay"><span>VIP Event · AMC</span></div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=600&h=600&fit=crop" alt="Dessert Corner AMC"
-            loading="lazy" width="600" height="600">
+          <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=600&h=600&fit=crop"
+            alt="Dessert Corner AMC" loading="lazy" width="600" height="600">
+          <div class="gallery-overlay"><span>Dessert Corner · AMC</span></div>
         </div>
       </div>
     </div>
@@ -827,6 +873,11 @@
         <p class="subtitle">Konsultasikan kebutuhan catering Anda bersama kami</p>
         <p>Hubungi kami sekarang untuk mendapatkan penawaran terbaik. Tim kami siap membantu merencanakan menu yang
           sempurna untuk acara Anda.</p>
+
+        <div class="cta-hours-badge">
+          <span class="cta-hours-dot"></span>
+          <span>Buka Setiap Hari · 07:00 – 21:00 WIB</span>
+        </div>
 
         <div class="cta-buttons">
           <a href="https://wa.me/628568773200?text=Halo%20Bu%2C%20saya%20tertarik%20dengan%20layanan%20catering%20AMC.%20Boleh%20info%20lebih%20lanjut%3F"
@@ -856,7 +907,9 @@
             <div class="cta-channel-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.17 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.17 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
               </svg>
             </div>
             <div>
@@ -993,11 +1046,13 @@
           </div>
           <div class="footer-contact-item">
             <span class="footer-contact-icon">📸</span>
-            <a href="https://www.instagram.com/catering.amc/" target="_blank" rel="noopener" style="color:inherit;">@catering.amc</a>
+            <a href="https://www.instagram.com/catering.amc/" target="_blank" rel="noopener"
+              style="color:inherit;">@catering.amc</a>
           </div>
           <div class="footer-contact-item">
             <span class="footer-contact-icon">📘</span>
-            <a href="https://www.facebook.com/amc.catering/" target="_blank" rel="noopener" style="color:inherit;">AMC Catering</a>
+            <a href="https://www.facebook.com/amc.catering/" target="_blank" rel="noopener" style="color:inherit;">AMC
+              Catering</a>
           </div>
           <div class="footer-contact-item">
             <span class="footer-contact-icon">🕐</span>
@@ -1017,10 +1072,40 @@
   <a href="https://wa.me/628568773200?text=Halo%20Bu%2C%20saya%20tertarik%20dengan%20layanan%20catering%20AMC.%20Boleh%20info%20lebih%20lanjut%3F"
     class="wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp AMC">
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
     </svg>
     <span class="wa-float-label">Chat Sekarang</span>
   </a>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button id="backToTop" class="back-to-top" aria-label="Kembali ke atas">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ===== GALLERY LIGHTBOX ===== -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galeri foto">
+    <button id="lightboxClose" class="lightbox-close" aria-label="Tutup">&times;</button>
+    <button id="lightboxPrev" class="lightbox-nav lightbox-prev" aria-label="Foto sebelumnya">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="" loading="lazy">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+    <button id="lightboxNext" class="lightbox-nav lightbox-next" aria-label="Foto selanjutnya">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
 
   <!-- ===== MAIN JS ===== -->
   <script src="js/script.js"></script>
