@@ -1115,6 +1115,56 @@
     </button>
   </div>
 
+  <!-- ===== FORM MODAL OVERLAY ===== -->
+  <div class="modal-overlay" id="waFormModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h3>Pesan Catering Sekarang</h3>
+      <form id="waForm">
+        <div class="form-group">
+          <label for="name">Nama Lengkap</label>
+          <input type="text" id="name" name="name" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="eventType">Jenis Acara</label>
+          <select id="eventType" name="eventType" required aria-required="true">
+            <option value="">-- Pilih Acara --</option>
+            <option value="Nasi Box">Nasi Box</option>
+            <option value="Prasmanan">Prasmanan</option>
+            <option value="Wedding">Pernikahan</option>
+            <option value="Tumpeng">Tumpeng</option>
+            <option value="Snack Box">Snack Box</option>
+            <option value="Aqiqah">Aqiqah</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Tanggal Acara</label>
+          <input type="date" id="date" name="date" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="guestCount">Jumlah Tamu</label>
+          <input type="number" id="guestCount" name="guestCount" min="1" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="location">Lokasi Acara</label>
+          <input type="text" id="location" name="location" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="budget">Budget (Rp)</label>
+          <select id="budget" name="budget" required aria-required="true">
+            <option value="">-- Pilih Budget --</option>
+            <option value="20000-30000">Rp 20.000 - Rp 30.000</option>
+            <option value="30000-50000">Rp 30.000 - Rp 50.000</option>
+            <option value="50000-100000">Rp 50.000 - Rp 100.000</option>
+            <option value="100000+">Rp 100.000+</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Kirim Pesan via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
   <!-- ===== MAIN JS ===== -->
   <script src="js/script.js"></script>
 </body>

@@ -145,194 +145,51 @@ document.addEventListener('DOMContentLoaded', () => {
     // ================================================================
     // TESTIMONIAL CAROUSEL — Fixed: use scrollLeft instead of
     // scrollIntoView to prevent interfering with page scroll position
-    // ================================================================
-    const track = document.querySelector('.testimonial-track');
-    const dotsContainer = document.querySelector('.testimonial-dots');
+    // ================================================================\n
+    // --- WhatsApp Form Modal Logic ---
+    const modal = document.getElementById('waFormModal');
+    const form = document.getElementById('waForm');
+    const closeBtn = document.getElementById('modalClose');
+    const openBtns = document.querySelectorAll('.service-wa-btn');
 
-    if (track) {
-        const cards = track.querySelectorAll('.testimonial-card');
-        const totalCards = cards.length;
-        let currentIndex = 0;
-        let autoTimer = null;
-        let isUserScrolling = false;
+    if (modal && form && closeBtn) {
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-        // Build dots
-        if (dotsContainer) {
-            cards.forEach((_, i) => {
-                const dot = document.createElement('button');
-                dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
-                dot.setAttribute('aria-label', `Testimoni ${i + 1}`);
-                dot.addEventListener('click', () => goToCard(i));
-                dotsContainer.appendChild(dot);
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
             });
-        }
-
-        // Build prev/next buttons
-        const prevBtn = document.querySelector('.testimonial-prev');
-        const nextBtn = document.querySelector('.testimonial-next');
-        if (prevBtn) prevBtn.addEventListener('click', () => goToCard(currentIndex - 1));
-        if (nextBtn) nextBtn.addEventListener('click', () => goToCard(currentIndex + 1));
-
-        function getCardWidth() {
-            if (!cards.length) return 0;
-            const style = window.getComputedStyle(cards[0]);
-            return cards[0].offsetWidth + parseInt(style.marginRight || 0);
-        }
-
-        function goToCard(index) {
-            currentIndex = ((index % totalCards) + totalCards) % totalCards;
-            // Use scrollLeft — does NOT scroll the page
-            track.scrollTo({
-                left: currentIndex * getCardWidth(),
-                behavior: 'smooth'
-            });
-            updateDots();
-        }
-
-        function updateDots() {
-            if (!dotsContainer) return;
-            dotsContainer.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentIndex);
-            });
-        }
-
-        // Detect scroll position to update dots when user manually swipes
-        let scrollTimeout;
-        track.addEventListener('scroll', () => {
-            isUserScrolling = true;
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                const cardW = getCardWidth();
-                if (cardW > 0) {
-                    currentIndex = Math.round(track.scrollLeft / cardW);
-                    currentIndex = Math.max(0, Math.min(currentIndex, totalCards - 1));
-                    updateDots();
-                }
-                isUserScrolling = false;
-            }, 150);
-        }, { passive: true });
-
-        function startAuto() {
-            stopAuto();
-            autoTimer = setInterval(() => {
-                if (!isUserScrolling) {
-                    goToCard(currentIndex + 1);
-                }
-            }, 4500);
-        }
-
-        function stopAuto() {
-            if (autoTimer) {
-                clearInterval(autoTimer);
-                autoTimer = null;
-            }
-        }
-
-        startAuto();
-        track.addEventListener('mouseenter', stopAuto);
-        track.addEventListener('mouseleave', startAuto);
-        track.addEventListener('touchstart', () => {
-            stopAuto();
-            isUserScrolling = true;
-        }, { passive: true });
-        track.addEventListener('touchend', () => {
-            isUserScrolling = false;
-            setTimeout(startAuto, 2500);
         });
-    }
 
-    // --- Active nav link highlight on scroll (using class, not inline style) ---
-    const sections = document.querySelectorAll('section[id]');
-    const navLinksAll = document.querySelectorAll('.nav-links a:not(.nav-cta):not(.nav-phone)');
-
-    function highlightNav() {
-        const scrollPos = window.scrollY + 120;
-
-        sections.forEach(section => {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            const id = section.getAttribute('id');
-
-            if (scrollPos >= top && scrollPos < top + height) {
-                navLinksAll.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
-    }
 
-    // --- Gallery Lightbox ---
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-    const galleryItems = document.querySelectorAll('.gallery-item img');
-    let currentLightboxIndex = 0;
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const eventType = formData.get('eventType');
+            const date = formData.get('date');
+            const guestCount = formData.get('guestCount');
+            const location = formData.get('location');
+            const budget = formData.get('budget');
 
-    function openLightbox(index) {
-        currentLightboxIndex = index;
-        const img = galleryItems[index];
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = img.alt;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    function navigateLightbox(dir) {
-        currentLightboxIndex = ((currentLightboxIndex + dir + galleryItems.length) % galleryItems.length);
-        openLightbox(currentLightboxIndex);
-    }
-
-    if (lightbox) {
-        galleryItems.forEach((img, i) => {
-            img.style.cursor = 'zoom-in';
-            img.parentElement.addEventListener('click', () => openLightbox(i));
-        });
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
-        lightboxNext.addEventListener('click', () => navigateLightbox(1));
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') navigateLightbox(-1);
-            if (e.key === 'ArrowRight') navigateLightbox(1);
-        });
-    }
-
-    // --- FAQ Accordion ---
-    document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.closest('.faq-item');
-            const isOpen = item.classList.contains('open');
-            // Close all
-            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-            // Open clicked if it was closed
-            if (!isOpen) item.classList.add('open');
-        });
-    });
-
-    // --- Back to Top Button ---
-    const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        window.addEventListener('scroll', () => {
-            backToTop.classList.toggle('visible', window.scrollY > 400);
-        }, { passive: true });
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            const message = `Halo AMC, saya ingin pesan catering untuk ${eventType} pada ${date} untuk ${guestCount} orang. Lokasi: ${location}. Budget: ${budget}. Nama: ${name}.`;
+            const url = `https://wa.me/628568773200?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+            closeModal();
+            form.reset();
         });
     }
 
