@@ -94,10 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
             const current = Math.floor(eased * target);
 
-            el.textContent = current.toLocaleString('id-ID') + '+';
+            el.textContent = current.toLocaleString('id-ID');
 
             if (progress < 1) {
                 requestAnimationFrame(update);
+            } else {
+                const suffix = el.dataset.suffix || '';
+                el.textContent += suffix;
             }
         }
 
