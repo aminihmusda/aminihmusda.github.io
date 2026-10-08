@@ -10,7 +10,7 @@ Professional catering service website for **Aminih Musda Catering (AMC)** — se
 
 Single-page responsive website showcasing AMC's catering services with:
 - Hero section with brand logo and company tagline
-- About section with company history (since 2001/2004)
+- About section with company history (since 2004)
 - Core values: Halal, Terjangkau, Enak
 - 6 service offerings (Nasi Box, Prasmanan, Wedding, Tumpeng, Snack Box, Aqiqah)
 - Filterable menu catalog
@@ -29,19 +29,16 @@ Single-page responsive website showcasing AMC's catering services with:
 
 ```
 web-amc/
-├── index.html          # Main HTML file (777 lines)
-├── index.css           # Stylesheet (1442 lines)
-├── index.js            # JavaScript (166 lines)
-├── asset/              # Assets directory
-│   ├── 1.png           # Logo (dark background)
-│   ├── 2.png           # Logo (light background)
-│   ├── 3.png           # Icon (light background)
-│   ├── 4.png           # Icon (dark background)
-│   ├── brand-guideline-aminih-musda-catering.md
-│   ├── profile.md
-│   ├── link.md
-│   └── seo-strategy-amc.md
-├── brand-guideline-aminih-musda-catering.md  # (duplicate, to be moved)
+├── index.html          # Main HTML file
+├── css/
+│   └── style.css       # Main stylesheet
+├── js/
+│   └── script.js       # Main JavaScript file
+├── assets/             # Assets directory
+│   ├── images/         # Image assets
+│   │   ├── about/      # About section images
+│   │   └── services/   # Service section images
+│   └── docs/           # Documentation and guidelines
 ├── .gitignore
 ├── robots.txt
 ├── sitemap.xml

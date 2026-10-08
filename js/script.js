@@ -4,15 +4,23 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Navbar scroll effect ---
+    // --- Navbar scroll effect (Optimized with rAF) ---
     const navbar = document.getElementById('navbar');
+    let scrollRequest = null;
+
     const handleScroll = () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 60);
-        updateScrollProgress();
-        highlightNav();
+        if (scrollRequest) return;
+        scrollRequest = requestAnimationFrame(() => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+            updateScrollProgress();
+            highlightNav();
+            scrollRequest = null;
+        });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // run once on load
+    navbar.classList.toggle('scrolled', window.scrollY > 60); // Run once
+    updateScrollProgress();
+    highlightNav();
 
     // --- Mobile nav toggle ---
     const navToggle = document.getElementById('navToggle');
